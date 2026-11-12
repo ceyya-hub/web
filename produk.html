@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Warung Ananta- Beranda</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ===== INI HEADER ===== -->
+    <header class="main-header">
+      <div class="container header-content">
+        <div class="logo-area">
+          <img
+            src="asset/Logo.png"
+            alt="Logo Warung Ananta"
+            class="logo-img"
+          />
+          <div class="logo-text">
+            <h1 class="logo">Warung Ananta</h1>
+            <p class="tagline">
+              Menghadirkan Berbagai Pilihan Makanan Nusantara
+            </p>
+          </div>
+        </div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="home.html" class="nav-link">Beranda</a></li>
+            <li><a href="produk.html" class="nav-link active">Produk</a></li>
+            <li><a href="kontak.html" class="nav-link" >Kontak</a></li>
+            <li><a href="tentang_kami.html" class="nav-link">Tentang Kami</a></li>
+          </ul>
+        </nav>
+      </div> 
+    </header>
+
+    <main>
+      <div class="container">
+        <!-- Kotak pencarian -->
+        <div class="search-bar">
+          <input
+            type="text"
+            class="search-input"
+            id="input-cari"
+            placeholder="Cari berdasarkan nama makanan, kategori, atau asal daerah..."
+          />
+          <button class="btn-search" id="btn-cari" type="button">Cari</button>
+        </div>
+
+        <!-- Layout 2 kolom: filter + daftar produk -->
+        <div class="produk-layout">
+          <!-- Sidebar filter -->
+          <aside class="filter-sidebar" id="filter-kategori">
+            <h3>Kategori Filter</h3>
+            <ul class="filter-list">
+              <li>
+                <label><input class="cek-kategori" type="checkbox" value="berat" /> Makanan Berat</label>
+              </li>
+              <li>
+                <label><input class="cek-kategori" type="checkbox" value="camilan" /> Jajanan & Camilan</label>
+              </li>
+              <li>
+                <label><input class="cek-kategori" type="checkbox" value="minuman" /> Minuman</label>
+              </li>
+              <li>
+                <label><input class="cek-kategori" type="checkbox" value="sambal" /> Sambal</label>
+              </li>
+          
+          
+            </ul>
+          </aside>
+
+          <!-- Grid kartu produk -->
+          <div class="product-grid">
+            <div class="product-card" data-id="ayam-bakar" data-kategori="berat">
+              <div class="product-image">
+                <img src="asset/produk_1.jpeg" />
+                <span class="badge badge-bestseller">Promo</span>
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Ayam Bakar</h3>
+                <p class="product-desc">
+                 Ayam bakar berbumbu dengan rasa manis gurih.
+                </p>
+                <div class="product-footer">
+                  <span class="product-price" data-harga="35000">Rp 35.000</span>
+                  <button class="btn-detail">Detail</button>
+                  <button class="btn-keranjang" type="button">Tambah ke Keranjang</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card" data-id="ayam-serundeng" data-kategori="berat">
+              <div class="product-image">
+                <img src="asset/produk4.jpeg" />
+                Ayam Serundeng
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Ayam Serundeng</h3>
+                <p class="product-desc">
+                  Ayam goreng berbumbu serundeng kelapa dari rempah-rempah khas Nusantara.
+      
+                </p>
+                <div class="product-footer">
+                  <span class="product-price" data-harga="45000">Rp 45.000</span>
+                  <button class="btn-detail">Detail</button>
+                  <button class="btn-keranjang" type="button">Tambah ke Keranjang</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card" data-id="ayam-betutu" data-kategori="berat">
+              <div class="product-image">
+                <img src="asset/produk5.jpeg" />
+                Ayam Betutu
+                <span class="badge badge-promo">Best Seller</span>
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Ayam Betutu</h3>
+                <p class="product-desc">
+                  menggunakan "Bumbu Genep" yaitu bumbu tradisional khas Bali.
+        
+                </p>
+                <div class="product-footer">
+                  <span class="product-price" data-harga="45000">Rp 45.000</span>
+                  <button class="btn-detail">Detail</button>
+                  <button class="btn-keranjang" type="button">Tambah ke Keranjang</button>
+                </div>
+              </div>
+            </div>
+            <div class="product-card" data-id="es-cendol" data-kategori="minuman">
+              <div class="product-image">
+                <img src="asset/escendol.jpeg" alt="Es Cendol" />
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Es Cendol</h3>
+                <p class="product-desc">Minuman segar dengan cendol dan kuah santan manis.</p>
+                <div class="product-footer">
+                  <span class="product-price" data-harga="50000">Rp 50.000</span>
+                  <button class="btn-detail" type="button">Detail</button>
+                  <button class="btn-keranjang" type="button">Tambah ke Keranjang</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card" data-id="es-daluman" data-kategori="minuman">
+              <div class="product-image">
+                <img src="asset/esdaluman.jpeg" alt="Es Daluman" />
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Es Daluman</h3>
+                <p class="product-desc">Minuman segar khas Bali dengan daluman dan santan.</p>
+                <div class="product-footer">
+                  <span class="product-price" data-harga="50000">Rp 50.000</span>
+                  <button class="btn-detail" type="button">Detail</button>
+                  <button class="btn-keranjang" type="button">Tambah ke Keranjang</button>
+                </div>
+              </div>
+            </div>
+            <div class="product-card" data-id="klepon" data-kategori="camilan">
+              <div class="product-image">
+                <img src="asset/klepon.jpeg" alt="Klepon" />
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Klepon</h3>
+                <p class="product-desc">Jajanan tradisional berisi gula merah dengan taburan kelapa parut.</p>
+                <div class="product-footer">
+                  <span class="product-price" data-harga="75000">Rp 75.000</span>
+                  <button class="btn-detail" type="button">Detail</button>
+                  <button class="btn-keranjang" type="button">Tambah ke Keranjang</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card" data-id="godoh" data-kategori="camilan">
+              <div class="product-image">
+                <img src="asset/godoh.jpeg" alt="Godoh" />
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Godoh</h3>
+                <p class="product-desc">Jajanan pisang goreng khas Bali yang manis dan gurih.</p>
+                <div class="product-footer">
+                  <span class="product-price" data-harga="75000">Rp 75.000</span>
+                  <button class="btn-detail" type="button">Detail</button>
+                  <button class="btn-keranjang" type="button">Tambah ke Keranjang</button>
+                </div>
+              </div>
+            </div>
+            <div class="product-card" data-id="sambal-matah" data-kategori="sambal">
+              <div class="product-image">
+                <img src="asset/sambalmatah.jpeg" alt="Sambal Matah" />
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Sambal Matah</h3>
+                <p class="product-desc">Sambal khas Bali dengan bawang, cabai, dan serai segar.</p>
+                <div class="product-footer">
+                  <span class="product-price" data-harga="50000">Rp 50.000</span>
+                  <button class="btn-detail" type="button">Detail</button>
+                  <button class="btn-keranjang" type="button">Tambah ke Keranjang</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card" data-id="sambal-ijo" data-kategori="sambal">
+              <div class="product-image">
+                <img src="asset/sambalijo.jpeg" alt="Sambal Ijo" />
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Sambal Ijo</h3>
+                <p class="product-desc">Sambal cabai hijau dengan cita rasa gurih dan pedas.</p>
+                <div class="product-footer">
+                  <span class="product-price" data-harga="50000">Rp 50.000</span>
+                  <button class="btn-detail" type="button">Detail</button>
+                  <button class="btn-keranjang" type="button">Tambah ke Keranjang</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p id="pesan-kosong" hidden>Produk tidak ditemukan.</p>
+        </div>
+        <section class="cart-panel" aria-live="polite">
+          <div class="cart-heading">
+            <div>
+              <h2>Keranjang belanja</h2>
+              <p><span id="jumlah-keranjang">0</span> item dipilih</p>
+            </div>
+            <span class="cart-icon" aria-hidden="true">🛒</span>
+          </div>
+          <p id="keranjang-kosong" class="cart-empty">Keranjang masih kosong. Tambahkan menu favoritmu.</p>
+          <ul id="daftar-keranjang" class="cart-list"></ul>
+          <div class="cart-total"><strong>Total</strong><strong id="total-harga">Rp 0</strong></div>
+        </section>
+        <section id="detail-panel" class="filter-sidebar" hidden aria-live="polite">
+          <button type="button" class="btn-detail" onclick="tutupDetail()">Tutup</button>
+          <h3 id="detail-judul"></h3>
+          <p id="detail-isi"></p>
+        </section>
+      </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="main-footer">
+      <div class="container footer-content">
+        <div class="footer-about">
+          <h3>Warung Ananta</h3>
+          <p>Menghadirkan masakan khas yang ngekhas banget sejak 2015.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Tautan</h4>
+          <ul>
+            <li><a href="home.html">Beranda</a></li>
+            <li><a href="produk.html">Produk</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+            <li><a href="tentang_kami.html" class="nav-link">Tentang Kami</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact" id="kontak">
+          <h4>Kontak Kami</h4>
+          <p>Email: anantafood@gmail.com</p>
+          <p>Telp: 081353182167</p>
+        </div>
+      </div>
+      <p class="copyright">
+        &copy; 2026 Warung Ananta. Seluruh hak cipta dilindungi.
+      </p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

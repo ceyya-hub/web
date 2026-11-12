@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warung Ananta - Kontak Kami</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="main-header">
+    <div class="container header-content">
+      <div class="logo-area">
+        <img src="asset/Logo.png" alt="Logo Warung Ananta" class="logo-img">
+        <div class="logo-text">
+          <h1 class="logo">Warung Ananta</h1>
+          <p class="tagline">Menghadirkan Berbagai Pilihan Makanan Nusantara</p>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="home.html" class="nav-link">Beranda</a></li>
+          <li><a href="produk.html" class="nav-link">Produk</a></li>
+          <li><a href="kontak.html" class="nav-link active">Kontak</a></li>
+          <li><a href="tentang_kami.html" class="nav-link">Tentang Kami</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== ISI HALAMAN KONTAK ===== -->
+  <main class="container">
+    <section class="intro">
+      <h2>Hubungi Kontak Kami</h2>
+      <p>Punya pertanyaan, kritik, atau saran? Kirimkan pesan Anda melalui formulir di bawah ini.</p>
+    </section>
+
+    <div class="produk-layout" style="justify-content: center;">
+      <aside class="filter-sidebar" style="width: 100%; max-width: 600px;">
+        <h3>Kirim Pesan Anda</h3>
+        <form style="display: flex; flex-direction: column; gap: 14px; margin-top: 14px;">
+          <div>
+            <label style="font-size: 14px; font-weight: 600; display: block; margin-bottom: 4px;">Nama</label>
+            <input type="text" class="search-input" placeholder="Masukkan nama Anda..." required>
+          </div>
+          <div>
+            <label style="font-size: 14px; font-weight: 600; display: block; margin-bottom: 4px;">Email</label>
+            <input type="email" class="search-input" placeholder="Masukkan email Anda..." required>
+          </div>
+          <div>
+            <label style="font-size: 14px; font-weight: 600; display: block; margin-bottom: 4px;">Pesan</label>
+            <textarea class="search-input" rows="4" placeholder="Tuliskan pesan Anda di sini..." style="resize: vertical;" required></textarea>
+          </div>
+          <button type="submit" class="btn-search" style="padding: 12px 0; font-size: 15px;">Kirim Pesan</button>
+        </form>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+ <footer class="main-footer">
+    <div class="container footer-content">
+      <div class="footer-about">
+        <h3>Warung Ananta</h3>
+        <p>Menghadirkan masakan khas yang ngekhas banget sejak 2015.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Tautan</h4>
+        <ul>
+          <li><a href="home.html">Beranda</a></li>
+          <li><a href="produk.html">Produk</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact" id="kontak">
+        <h4>Kontak Kami</h4>
+        <p>Email: anantafood@gmail.com</p>
+        <p>Telp: +62 81353182167</p>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2026 Warung Ananta. Seluruh hak cipta dilindungi.</p>
+  </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
