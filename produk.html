@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Warung Ananta- Beranda</title>
+    <title>Ina Bali Trans &amp; Travel - Produk</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -11,15 +11,11 @@
     <header class="main-header">
       <div class="container header-content">
         <div class="logo-area">
-          <img
-            src="asset/Logo.png"
-            alt="Logo Warung Ananta"
-            class="logo-img"
-          />
+          <img src="asset/Logo_ina_icon.png" alt="Ina Bali Trans & travel" class="logo-img" />
           <div class="logo-text">
-            <h1 class="logo">Warung Ananta</h1>
+            <h1 class="logo">Ina Bali Trans & Travel</h1>
             <p class="tagline">
-              Menghadirkan Berbagai Pilihan Makanan Nusantara
+              Beyond Destinations, Into Experiences.
             </p>
           </div>
         </div>
@@ -27,11 +23,11 @@
           <ul>
             <li><a href="home.html" class="nav-link">Beranda</a></li>
             <li><a href="produk.html" class="nav-link active">Produk</a></li>
-            <li><a href="kontak.html" class="nav-link" >Kontak</a></li>
+            <li><a href="kontak.html" class="nav-link">Kontak</a></li>
             <li><a href="tentang_kami.html" class="nav-link">Tentang Kami</a></li>
           </ul>
         </nav>
-      </div> 
+      </div>
     </header>
 
     <main>
@@ -42,175 +38,149 @@
             type="text"
             class="search-input"
             id="input-cari"
-            placeholder="Cari berdasarkan nama makanan, kategori, atau asal daerah..."
+            placeholder="Cari berdasarkan nama mobil atau kategori..."
           />
           <button class="btn-search" id="btn-cari" type="button">Cari</button>
         </div>
 
         <!-- Layout 2 kolom: filter + daftar produk -->
         <div class="produk-layout">
-          <!-- Sidebar filter -->
-          <aside class="filter-sidebar" id="filter-kategori">
-            <h3>Kategori Filter</h3>
-            <ul class="filter-list">
-              <li>
-                <label><input class="cek-kategori" type="checkbox" value="berat" /> Makanan Berat</label>
-              </li>
-              <li>
-                <label><input class="cek-kategori" type="checkbox" value="camilan" /> Jajanan & Camilan</label>
-              </li>
-              <li>
-                <label><input class="cek-kategori" type="checkbox" value="minuman" /> Minuman</label>
-              </li>
-              <li>
-                <label><input class="cek-kategori" type="checkbox" value="sambal" /> Sambal</label>
-              </li>
-          
-          
-            </ul>
-          </aside>
+          <!-- Kolom kiri: filter + keranjang (tetap terlihat saat scroll) -->
+          <div class="produk-sidebar">
+            <aside class="filter-sidebar" id="filter-kategori">
+              <h3>Kategori Filter</h3>
+              <ul class="filter-list">
+                <li>
+                  <label><input class="cek-kategori" type="checkbox" value="mpv" /> MPV Keluarga</label>
+                </li>
+                <li>
+                  <label><input class="cek-kategori" type="checkbox" value="suv" /> SUV</label>
+                </li>
+                <li>
+                  <label><input class="cek-kategori" type="checkbox" value="premium" /> Premium</label>
+                </li>
+                <li>
+                  <label><input class="cek-kategori" type="checkbox" value="van" /> Minibus / Van</label>
+                </li>
+              </ul>
+            </aside>
+
+            <section class="cart-panel" aria-live="polite">
+              <div class="cart-heading">
+                <div>
+                  <h2>Keranjang belanja</h2>
+                  <p><span id="jumlah-keranjang">0</span> item dipilih</p>
+                </div>
+                <span class="cart-icon" aria-hidden="true">🛒</span>
+              </div>
+              <p id="keranjang-kosong" class="cart-empty">Keranjang masih kosong. Tambahkan mobil pilihanmu.</p>
+              <ul id="daftar-keranjang" class="cart-list"></ul>
+              <div class="cart-total"><strong>Total</strong><strong id="total-harga">Rp 0</strong></div>
+              <button type="button" id="btn-checkout" class="btn-checkout" disabled>Checkout via WhatsApp</button>
+            </section>
+          </div>
 
           <!-- Grid kartu produk -->
           <div class="product-grid">
-            <div class="product-card" data-id="ayam-bakar" data-kategori="berat">
+            <div class="product-card" data-id="avanza-g" data-kategori="mpv">
               <div class="product-image">
-                <img src="asset/produk_1.jpeg" />
-                <span class="badge badge-bestseller">Promo</span>
+                <a href="detail_avanza_g.html"><img src="asset/toyota_avanza_G_new.png" alt="Toyota Avanza G" /></a>
               </div>
               <div class="product-info">
-                <h3 class="product-title">Ayam Bakar</h3>
+                <h3 class="product-title"><a href="detail_avanza_g.html">Toyota Avanza G</a></h3>
                 <p class="product-desc">
-                 Ayam bakar berbumbu dengan rasa manis gurih.
+                  MPV 7 penumpang yang irit dan nyaman, pilihan favorit untuk liburan keluarga di Bali.
                 </p>
                 <div class="product-footer">
-                  <span class="product-price" data-harga="35000">Rp 35.000</span>
-                  <button class="btn-detail">Detail</button>
+                  <span class="product-price" data-harga="600000">Rp 600.000 / hari</span>
+                  <a class="btn-detail" href="detail_avanza_g.html">Detail</a>
                   <button class="btn-keranjang" type="button">Tambah ke Keranjang</button>
                 </div>
               </div>
             </div>
 
-            <div class="product-card" data-id="ayam-serundeng" data-kategori="berat">
+            <div class="product-card" data-id="avanza-veloz" data-kategori="mpv">
               <div class="product-image">
-                <img src="asset/produk4.jpeg" />
-                Ayam Serundeng
+                <a href="detail_avanza_veloz.html"><img src="asset/toyota_avanza_veloz.png" alt="Toyota Avanza Veloz" /></a>
               </div>
               <div class="product-info">
-                <h3 class="product-title">Ayam Serundeng</h3>
+                <h3 class="product-title"><a href="detail_avanza_veloz.html">Toyota Avanza Veloz</a></h3>
                 <p class="product-desc">
-                  Ayam goreng berbumbu serundeng kelapa dari rempah-rempah khas Nusantara.
-      
+                  MPV bergaya sporty dengan kabin lega, cocok untuk rombongan kecil yang ingin tampil beda.
                 </p>
                 <div class="product-footer">
-                  <span class="product-price" data-harga="45000">Rp 45.000</span>
-                  <button class="btn-detail">Detail</button>
+                  <span class="product-price" data-harga="650000">Rp 650.000 / hari</span>
+                  <a class="btn-detail" href="detail_avanza_veloz.html">Detail</a>
                   <button class="btn-keranjang" type="button">Tambah ke Keranjang</button>
                 </div>
               </div>
             </div>
 
-            <div class="product-card" data-id="ayam-betutu" data-kategori="berat">
+            <div class="product-card" data-id="innova-reborn" data-kategori="mpv">
               <div class="product-image">
-                <img src="asset/produk5.jpeg" />
-                Ayam Betutu
-                <span class="badge badge-promo">Best Seller</span>
+                <a href="detail_innova_reborn.html"><img src="asset/toyota_innova_reborn.png" alt="Toyota Innova Reborn" /></a>
+                <span class="badge badge-bestseller">Best Seller</span>
               </div>
               <div class="product-info">
-                <h3 class="product-title">Ayam Betutu</h3>
+                <h3 class="product-title"><a href="detail_innova_reborn.html">Toyota Innova Reborn</a></h3>
                 <p class="product-desc">
-                  menggunakan "Bumbu Genep" yaitu bumbu tradisional khas Bali.
-        
+                  MPV lega dan stabil untuk perjalanan jauh keliling Bali dengan kenyamanan kelas atas.
                 </p>
                 <div class="product-footer">
-                  <span class="product-price" data-harga="45000">Rp 45.000</span>
-                  <button class="btn-detail">Detail</button>
-                  <button class="btn-keranjang" type="button">Tambah ke Keranjang</button>
-                </div>
-              </div>
-            </div>
-            <div class="product-card" data-id="es-cendol" data-kategori="minuman">
-              <div class="product-image">
-                <img src="asset/escendol.jpeg" alt="Es Cendol" />
-              </div>
-              <div class="product-info">
-                <h3 class="product-title">Es Cendol</h3>
-                <p class="product-desc">Minuman segar dengan cendol dan kuah santan manis.</p>
-                <div class="product-footer">
-                  <span class="product-price" data-harga="50000">Rp 50.000</span>
-                  <button class="btn-detail" type="button">Detail</button>
+                  <span class="product-price" data-harga="800000">Rp 800.000 / hari</span>
+                  <a class="btn-detail" href="detail_innova_reborn.html">Detail</a>
                   <button class="btn-keranjang" type="button">Tambah ke Keranjang</button>
                 </div>
               </div>
             </div>
 
-            <div class="product-card" data-id="es-daluman" data-kategori="minuman">
+            <div class="product-card" data-id="raize-turbo" data-kategori="suv">
               <div class="product-image">
-                <img src="asset/esdaluman.jpeg" alt="Es Daluman" />
+                <a href="detail_raize_turbo.html"><img src="asset/toyota_raize_G_turbo.png" alt="Toyota Raize G Turbo" /></a>
               </div>
               <div class="product-info">
-                <h3 class="product-title">Es Daluman</h3>
-                <p class="product-desc">Minuman segar khas Bali dengan daluman dan santan.</p>
+                <h3 class="product-title"><a href="detail_raize_turbo.html">Toyota Raize G Turbo</a></h3>
+                <p class="product-desc">
+                  SUV kompak bermesin turbo yang lincah, pas untuk pasangan atau keluarga kecil.
+                </p>
                 <div class="product-footer">
-                  <span class="product-price" data-harga="50000">Rp 50.000</span>
-                  <button class="btn-detail" type="button">Detail</button>
-                  <button class="btn-keranjang" type="button">Tambah ke Keranjang</button>
-                </div>
-              </div>
-            </div>
-            <div class="product-card" data-id="klepon" data-kategori="camilan">
-              <div class="product-image">
-                <img src="asset/klepon.jpeg" alt="Klepon" />
-              </div>
-              <div class="product-info">
-                <h3 class="product-title">Klepon</h3>
-                <p class="product-desc">Jajanan tradisional berisi gula merah dengan taburan kelapa parut.</p>
-                <div class="product-footer">
-                  <span class="product-price" data-harga="75000">Rp 75.000</span>
-                  <button class="btn-detail" type="button">Detail</button>
+                  <span class="product-price" data-harga="650000">Rp 650.000 / hari</span>
+                  <a class="btn-detail" href="detail_raize_turbo.html">Detail</a>
                   <button class="btn-keranjang" type="button">Tambah ke Keranjang</button>
                 </div>
               </div>
             </div>
 
-            <div class="product-card" data-id="godoh" data-kategori="camilan">
+            <div class="product-card" data-id="alphard" data-kategori="premium">
               <div class="product-image">
-                <img src="asset/godoh.jpeg" alt="Godoh" />
+                <a href="detail_alphard.html"><img src="asset/toyota_alphard.png" alt="Toyota Alphard" /></a>
+                <span class="badge badge-promo">Premium</span>
               </div>
               <div class="product-info">
-                <h3 class="product-title">Godoh</h3>
-                <p class="product-desc">Jajanan pisang goreng khas Bali yang manis dan gurih.</p>
+                <h3 class="product-title"><a href="detail_alphard.html">Toyota Alphard</a></h3>
+                <p class="product-desc">
+                  Minivan mewah dengan kursi captain untuk tamu VIP, honeymoon, dan perjalanan eksklusif.
+                </p>
                 <div class="product-footer">
-                  <span class="product-price" data-harga="75000">Rp 75.000</span>
-                  <button class="btn-detail" type="button">Detail</button>
-                  <button class="btn-keranjang" type="button">Tambah ke Keranjang</button>
-                </div>
-              </div>
-            </div>
-            <div class="product-card" data-id="sambal-matah" data-kategori="sambal">
-              <div class="product-image">
-                <img src="asset/sambalmatah.jpeg" alt="Sambal Matah" />
-              </div>
-              <div class="product-info">
-                <h3 class="product-title">Sambal Matah</h3>
-                <p class="product-desc">Sambal khas Bali dengan bawang, cabai, dan serai segar.</p>
-                <div class="product-footer">
-                  <span class="product-price" data-harga="50000">Rp 50.000</span>
-                  <button class="btn-detail" type="button">Detail</button>
+                  <span class="product-price" data-harga="2500000">Rp 2.500.000 / hari</span>
+                  <a class="btn-detail" href="detail_alphard.html">Detail</a>
                   <button class="btn-keranjang" type="button">Tambah ke Keranjang</button>
                 </div>
               </div>
             </div>
 
-            <div class="product-card" data-id="sambal-ijo" data-kategori="sambal">
+            <div class="product-card" data-id="hiace-commuter" data-kategori="van">
               <div class="product-image">
-                <img src="asset/sambalijo.jpeg" alt="Sambal Ijo" />
+                <a href="detail_hiace_commuter.html"><img src="asset/toyota_van_hiace_commuter.png" alt="Toyota HiAce Commuter" /></a>
               </div>
               <div class="product-info">
-                <h3 class="product-title">Sambal Ijo</h3>
-                <p class="product-desc">Sambal cabai hijau dengan cita rasa gurih dan pedas.</p>
+                <h3 class="product-title"><a href="detail_hiace_commuter.html">Toyota HiAce Commuter</a></h3>
+                <p class="product-desc">
+                  Minibus kapasitas besar untuk rombongan, study tour, dan perjalanan wisata grup.
+                </p>
                 <div class="product-footer">
-                  <span class="product-price" data-harga="50000">Rp 50.000</span>
-                  <button class="btn-detail" type="button">Detail</button>
+                  <span class="product-price" data-harga="1200000">Rp 1.200.000 / hari</span>
+                  <a class="btn-detail" href="detail_hiace_commuter.html">Detail</a>
                   <button class="btn-keranjang" type="button">Tambah ke Keranjang</button>
                 </div>
               </div>
@@ -218,23 +188,6 @@
           </div>
           <p id="pesan-kosong" hidden>Produk tidak ditemukan.</p>
         </div>
-        <section class="cart-panel" aria-live="polite">
-          <div class="cart-heading">
-            <div>
-              <h2>Keranjang belanja</h2>
-              <p><span id="jumlah-keranjang">0</span> item dipilih</p>
-            </div>
-            <span class="cart-icon" aria-hidden="true">🛒</span>
-          </div>
-          <p id="keranjang-kosong" class="cart-empty">Keranjang masih kosong. Tambahkan menu favoritmu.</p>
-          <ul id="daftar-keranjang" class="cart-list"></ul>
-          <div class="cart-total"><strong>Total</strong><strong id="total-harga">Rp 0</strong></div>
-        </section>
-        <section id="detail-panel" class="filter-sidebar" hidden aria-live="polite">
-          <button type="button" class="btn-detail" onclick="tutupDetail()">Tutup</button>
-          <h3 id="detail-judul"></h3>
-          <p id="detail-isi"></p>
-        </section>
       </div>
     </main>
 
@@ -242,8 +195,8 @@
     <footer class="main-footer">
       <div class="container footer-content">
         <div class="footer-about">
-          <h3>Warung Ananta</h3>
-          <p>Menghadirkan masakan khas yang ngekhas banget sejak 2015.</p>
+          <h3>Ina Bali Trans &amp; Travel</h3>
+          <p>Guide &amp; Rent Mobil Di Bali Dengan Harga Affordable</p>
         </div>
         <div class="footer-links">
           <h4>Tautan</h4>
@@ -251,17 +204,17 @@
             <li><a href="home.html">Beranda</a></li>
             <li><a href="produk.html">Produk</a></li>
             <li><a href="kontak.html">Kontak</a></li>
-            <li><a href="tentang_kami.html" class="nav-link">Tentang Kami</a></li>
+            <li><a href="tentang_kami.html">Tentang Kami</a></li>
           </ul>
         </div>
         <div class="footer-contact" id="kontak">
           <h4>Kontak Kami</h4>
-          <p>Email: anantafood@gmail.com</p>
-          <p>Telp: 081353182167</p>
+          <p>Email: inabalitrans@gmail.com</p>
+          <p>Telp: 085710837901</p>
         </div>
       </div>
       <p class="copyright">
-        &copy; 2026 Warung Ananta. Seluruh hak cipta dilindungi.
+        &copy; 2026 Ina Bali Trans &amp; Travel. Seluruh hak cipta dilindungi.
       </p>
     </footer>
     <script src="script.js"></script>
