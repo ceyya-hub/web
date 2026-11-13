@@ -1,4 +1,4 @@
-// Fitur interaktif halaman Warung Ananta.
+// Fitur interaktif Ina Bali Trans & Travel.
 function sapa() {
   const target = document.getElementById("sapaan");
   if (!target) return;
@@ -7,24 +7,51 @@ function sapa() {
   target.textContent = `${salam}, Welcome to INA BALI TRANS & TRAVEL!`;
 }
 
+// ===== Keranjang (disimpan di localStorage agar tetap ada saat pindah halaman) =====
+const KUNCI_KERANJANG = "ina-bali-keranjang";
 const keranjang = new Map();
 
+function muatKeranjang() {
+  try {
+    const data = JSON.parse(localStorage.getItem(KUNCI_KERANJANG) ?? "[]");
+    data.forEach((item) => {
+      if (item && item.id && Number.isFinite(item.harga) && item.jumlah > 0) keranjang.set(item.id, item);
+    });
+  } catch {
+    keranjang.clear();
+  }
+}
+
+function simpanKeranjang() {
+  try {
+    localStorage.setItem(KUNCI_KERANJANG, JSON.stringify([...keranjang.values()]));
+  } catch {
+    /* penyimpanan tidak tersedia, keranjang tetap jalan di memori */
+  }
+}
+
+// Ambil data produk dari kartu produk (produk.html) atau dari halaman detail
+function ambilDataProduk(tombol) {
+  const kartu = tombol.closest("[data-id]");
+  if (!kartu) return null;
+  const harga = Number(kartu.dataset.harga ?? kartu.querySelector(".product-price")?.dataset.harga);
+  const nama = kartu.dataset.nama ?? kartu.querySelector(".product-title")?.textContent.trim();
+  if (!nama || !Number.isFinite(harga) || harga <= 0) return null;
+  return { id: kartu.dataset.id, nama, harga };
+}
+
 function tambahKeranjang(tombol) {
-  const kartu = tombol.closest(".product-card");
-  const harga = Number(kartu?.querySelector(".product-price")?.dataset.harga);
-  if (!kartu || !Number.isFinite(harga) || harga <= 0) return;
-  const id = kartu.dataset.id;
-  const item = keranjang.get(id);
+  const produk = ambilDataProduk(tombol);
+  if (!produk) return;
+  const item = keranjang.get(produk.id);
   if (item) item.jumlah++;
-  else keranjang.set(id, {
-    id,
-    nama: kartu.querySelector(".product-title").textContent,
-    harga,
-    jumlah: 1,
-  });
+  else keranjang.set(produk.id, { ...produk, jumlah: 1 });
+  simpanKeranjang();
   renderKeranjang();
+  const teksAsli = tombol.dataset.teks ?? tombol.textContent;
+  tombol.dataset.teks = teksAsli;
   tombol.textContent = "Ditambahkan ✓";
-  window.setTimeout(() => { tombol.textContent = "Tambah ke Keranjang"; }, 1000);
+  window.setTimeout(() => { tombol.textContent = teksAsli; }, 1000);
 }
 
 function ubahJumlahKeranjang(id, delta) {
@@ -32,11 +59,13 @@ function ubahJumlahKeranjang(id, delta) {
   if (!item) return;
   item.jumlah += delta;
   if (item.jumlah <= 0) keranjang.delete(id);
+  simpanKeranjang();
   renderKeranjang();
 }
 
 function hapusDariKeranjang(id) {
   keranjang.delete(id);
+  simpanKeranjang();
   renderKeranjang();
 }
 
@@ -49,6 +78,7 @@ function renderKeranjang() {
   const total = [...keranjang.values()].reduce((n, item) => n + item.harga * item.jumlah, 0);
   if (jumlahEl) jumlahEl.textContent = jumlah;
   if (totalEl) totalEl.textContent = `Rp ${total.toLocaleString("id-ID")}`;
+  document.querySelectorAll(".jumlah-keranjang-nav").forEach((el) => { el.textContent = jumlah; });
   if (daftar) {
     daftar.replaceChildren();
     keranjang.forEach((item) => {
@@ -86,24 +116,31 @@ function renderKeranjang() {
     });
   }
   if (kosong) kosong.hidden = jumlah !== 0;
+  const checkout = document.getElementById("btn-checkout");
+  if (checkout) checkout.disabled = jumlah === 0;
 }
 
-function lihatDetail(tombol) {
-  const kartu = tombol.closest(".product-card");
-  const judul = document.getElementById("detail-judul");
-  const isi = document.getElementById("detail-isi");
-  const panel = document.getElementById("detail-panel");
-  if (!kartu || !judul || !isi || !panel) return;
-  judul.textContent = `${kartu.querySelector(".product-title").textContent} - ${kartu.querySelector(".product-price").textContent}`;
-  isi.textContent = kartu.querySelector(".product-desc").textContent.trim();
-  panel.hidden = false;
+// Checkout: kirim isi keranjang ke WhatsApp admin
+const NOMOR_WA = "6285710837901";
+
+function checkout() {
+  if (keranjang.size === 0) return;
+  let total = 0;
+  const baris = [...keranjang.values()].map((item, i) => {
+    const subtotal = item.harga * item.jumlah;
+    total += subtotal;
+    return `${i + 1}. ${item.nama} x${item.jumlah} hari - Rp ${subtotal.toLocaleString("id-ID")}`;
+  });
+  const pesan = [
+    "Halo Ina Bali Trans & Travel, saya ingin memesan:",
+    ...baris,
+    `Total: Rp ${total.toLocaleString("id-ID")}`,
+    "Mohon info ketersediaan dan langkah selanjutnya. Terima kasih.",
+  ].join("\n");
+  window.open(`https://wa.me/${NOMOR_WA}?text=${encodeURIComponent(pesan)}`, "_blank", "noopener");
 }
 
-function tutupDetail() {
-  const panel = document.getElementById("detail-panel");
-  if (panel) panel.hidden = true;
-}
-
+// ===== Pencarian & filter di halaman produk =====
 function terapkanFilter() {
   const kata = (document.getElementById("input-cari")?.value ?? "").trim().toLocaleLowerCase("id-ID");
   const dipilih = [...document.querySelectorAll(".cek-kategori:checked")].map((el) => el.value);
@@ -121,7 +158,7 @@ function terapkanFilter() {
 
 document.addEventListener("DOMContentLoaded", () => {
   sapa();
-  document.querySelectorAll(".btn-detail").forEach((tombol) => tombol.addEventListener("click", () => lihatDetail(tombol)));
+  muatKeranjang();
   document.querySelectorAll(".btn-keranjang").forEach((tombol) => tombol.addEventListener("click", () => tambahKeranjang(tombol)));
   const input = document.getElementById("input-cari");
   const cari = document.getElementById("btn-cari");
@@ -129,4 +166,5 @@ document.addEventListener("DOMContentLoaded", () => {
   cari?.addEventListener("click", terapkanFilter);
   document.querySelectorAll(".cek-kategori").forEach((cek) => cek.addEventListener("change", terapkanFilter));
   renderKeranjang();
+  document.getElementById("btn-checkout")?.addEventListener("click", checkout);
 });
