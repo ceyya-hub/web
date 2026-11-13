@@ -4,7 +4,7 @@ function sapa() {
   if (!target) return;
   const jam = new Date().getHours();
   const salam = jam < 11 ? "Selamat pagi" : jam < 15 ? "Selamat siang" : jam < 18 ? "Selamat sore" : "Selamat malam";
-  target.textContent = `${salam}, Welcome to INA BALI TRANS & TRAVEL! Let's make every journey memorable!`;
+  target.textContent = `${salam}, Welcome to INA BALI TRANS & TRAVEL!`;
 }
 
 const keranjang = new Map();
